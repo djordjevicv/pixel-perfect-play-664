@@ -34,10 +34,10 @@ export const CHECKS: Record<HabitId, TransferCheck> = {
     },
   },
   autonomy: {
-    choiceIds: ["obey", "repeat", "support"], correctId: "support",
+    choiceIds: ["obey", "support", "repeat"], correctId: "support",
     text: {
-      latn: { question: "Odlučuješ da li da prihvatiš ponudu za posao. Koju ulogu daješ AI?", choices: { obey: "Neka izabere umesto mene da ne moram da vagam.", repeat: "Pitaću ga dok ne potvrdi odgovor koji želim.", support: "Neka pomogne da sagledam prednosti i mane, a ja proveravam činjenice i odlučujem." }, feedback: "AI može da strukturira razmišljanje. Tvoje okolnosti, prioriteti i konačna procena ostaju tvoji." },
-      cyrl: { question: "Одлучујеш да ли да прихватиш понуду за посао. Коју улогу дајеш АИ?", choices: { obey: "Нека изабере уместо мене да не морам да вагам.", repeat: "Питаћу га док не потврди одговор који желим.", support: "Нека помогне да сагледам предности и мане, а ја проверавам чињенице и одлучујем." }, feedback: "АИ може да структурира размишљање. Твоје околности, приоритети и коначна процена остају твоји." },
+      latn: { question: "Imaš ponudu za novi posao. Plata je veća, ali pozicija donosi više odgovornosti i manje slobodnog vremena. Kako koristiš AI pre odluke?", choices: { obey: "Tražim da uporedi obe opcije prema plati, obavezama i slobodnom vremenu, pa biram onu koju oceni boljom.", support: "Opisujem svoje prioritete, tražim argumente za i protiv, proveravam ključne informacije i zatim odlučujem.", repeat: "Dajem podatke o obe opcije i prihvatam preporuku ako je detaljno i uverljivo obrazložena." }, feedback: "AI može da pomogne da uporediš opcije i sagledaš posledice prema svojim prioritetima. Ključne informacije proveravaš, a konačna odluka ostaje tvoja." },
+      cyrl: { question: "Имаш понуду за нови посао. Плата је већа, али позиција доноси више одговорности и мање слободног времена. Како користиш АИ пре одлуке?", choices: { obey: "Тражим да упореди обе опције према плати, обавезама и слободном времену, па бирам ону коју оцени бољом.", support: "Описујем своје приоритете, тражим аргументе за и против, проверавам кључне информације и затим одлучујем.", repeat: "Дајем податке о обе опције и прихватам препоруку ако је детаљно и уверљиво образложена." }, feedback: "АИ може да помогне да упоредиш опције и сагледаш последице према својим приоритетима. Кључне информације провераваш, а коначна одлука остаје твоја." },
     },
   },
 };

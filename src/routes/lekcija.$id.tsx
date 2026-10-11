@@ -27,6 +27,7 @@ function Lesson() {
   const [choice, setChoice] = useState(restoredChoice);
   const [submitted, setSubmitted] = useState(Boolean(restoredChoice));
   const [showExplainer, setShowExplainer] = useState(false);
+  const completed = Boolean(saved?.practiceCompleted);
   const index = HABIT_IDS.indexOf(id);
   const next = HABIT_IDS[index + 1];
   const selected = choice ? text.choices[choice] : null;
@@ -109,9 +110,22 @@ function Lesson() {
       <div className="rule-card"><p className="eyebrow">{t("lesson.whereAI")}</p><p className="mt-2">{text.usefulAI}</p></div>
     </div>}
 
-    {submitted && <div className="mt-8 flex flex-wrap gap-3">
+    {submitted && <LessonCompletionActions id={id} next={next} completed={completed} />}
+  </section>;
+}
+
+export function LessonCompletionActions({ id, next, completed }: { id: HabitId; next: HabitId | undefined; completed: boolean }) {
+  const { script, t } = useScript();
+  if (!completed) {
+    const instruction = id === "data" || id === "verify" ? t("lesson.finishPractice") : t("lesson.finishExplanation");
+    return <p className="feedback-inline mt-8" role="status">{instruction}</p>;
+  }
+
+  return <div className="mt-8" aria-live="polite">
+    <p className="feedback-inline is-good flex items-center gap-2" role="status"><CheckCircle2 aria-hidden className="h-5 w-5" />{t("lesson.completed")}</p>
+    <div className="mt-4 flex flex-wrap gap-3">
       <Link to="/provera/$id" params={{ id }} className="btn-primary">{script === "latn" ? "Probaj novi primer" : "Пробај нови пример"}<ArrowRight aria-hidden className="h-5 w-5" /></Link>
       {next ? <Link to="/lekcija/$id" params={{ id: next }} className="btn-quiet">{t("lesson.next")}</Link> : <Link to="/napredak" className="btn-quiet">{t("nav.progress")}</Link>}
-    </div>}
-  </section>;
+    </div>
+  </div>;
 }

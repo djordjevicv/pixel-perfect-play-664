@@ -17,7 +17,7 @@ const recommendation = {
   },
 } as const;
 
-function ProgressPage() {
+export function ProgressPage() {
   const { script, t } = useScript();
   const progress = useProgress();
   const done = completedCount(progress);

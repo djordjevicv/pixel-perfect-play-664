@@ -24,4 +24,14 @@ describe("lesson content", () => {
     expect(restoreChoice(SCENARIOS.tool!, "check_official")).toBe("check_official");
     expect(restoreChoice(SCENARIOS.tool!, "removed_choice")).toBe("");
   });
+
+  it("keeps the autonomy transfer check nuanced in both scripts", () => {
+    const check = CHECKS.autonomy;
+    expect(check.choiceIds).toEqual(["obey", "support", "repeat"]);
+    expect(check.correctId).toBe("support");
+    expect(check.text.latn.question).toContain("više odgovornosti i manje slobodnog vremena");
+    expect(check.text.latn.choices["support"]).toContain("zatim odlučujem");
+    expect(check.text.cyrl.question).toContain("више одговорности и мање слободног времена");
+    expect(check.text.cyrl.choices["support"]).toContain("затим одлучујем");
+  });
 });
